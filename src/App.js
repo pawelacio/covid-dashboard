@@ -18,18 +18,19 @@ const App = () => {
   const [isLoading, setLoading] = useState(true);
   const [historicalData, setHistoricalData] = useState(null);
   const [dailyData, setDailyData] = useState(null);
+  const [country, setCountry] = useState('Poland');
 
 
   useEffect(() => {
     console.log('App - useEffect');
 
-    const historicalDataReq = getCovidTimeline()
+    const historicalDataReq = getCovidTimeline(country)
     .then((data) => {
       if (!historicalData)
         setHistoricalData(data);
     });
 
-    const dailyDataReq = getCovidDaily()
+    const dailyDataReq = getCovidDaily(country)
     .then((data) => {
       if (!dailyData)
         setDailyData(data);
@@ -55,9 +56,9 @@ const App = () => {
           ) : (
           <AppContentStyled>
             <DailyDashboard data={dailyData}/>
-            <Card title="Covid-19 chart">
+            {/* <Card title="Covid-19 chart">
               <CovidLineChart data={historicalData} />
-            </Card>
+            </Card> */}
           </AppContentStyled>
           )}
       </AppStyled>

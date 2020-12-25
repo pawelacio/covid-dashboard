@@ -18,7 +18,10 @@ const DailyDashboard = ({data}) => {
     todayCases,
     todayDeaths,
     todayRecovered,
-    updated
+    updated,
+    casesPerOneMillion,
+    deathsPerOneMillion,
+    recoveredPerOneMillion
   } = data;
   const updatedDate = new Date(updated);
   console.log("Data", data);
@@ -34,7 +37,7 @@ const DailyDashboard = ({data}) => {
         <Card title="Today Recovered" >
           <ValueStyled>{todayRecovered.toLocaleString()}</ValueStyled>
         </Card>
-        <Card title="Today Death" >
+        <Card title="Today Deaths" >
           <ValueStyled>{todayDeaths.toLocaleString()}</ValueStyled>
         </Card>
       </RowStyled>
@@ -45,8 +48,19 @@ const DailyDashboard = ({data}) => {
         <Card title="Recovered" >
           <ValueStyled>{recovered.toLocaleString()}</ValueStyled>
         </Card>
-        <Card title="Death" >
+        <Card title="Deaths" >
           <ValueStyled>{deaths.toLocaleString()}</ValueStyled>
+        </Card>
+      </RowStyled>
+      <RowStyled>
+        <Card title="Cases per million population">
+          <ValueStyled>{casesPerOneMillion.toLocaleString()}</ValueStyled>
+        </Card>
+        <Card title="Recovered per million population" >
+          <ValueStyled>{recoveredPerOneMillion.toLocaleString()}</ValueStyled>
+        </Card>
+        <Card title="Deaths per million population" >
+          <ValueStyled>{deathsPerOneMillion.toLocaleString()}</ValueStyled>
         </Card>
       </RowStyled>
       <RowStyled>

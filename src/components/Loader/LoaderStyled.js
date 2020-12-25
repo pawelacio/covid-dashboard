@@ -18,7 +18,7 @@ export const Gooey = styled.div`
   left: 50%;
   width: 142px;
   height: 40px;
-  margin: -20px 0 0 -71px;
+  transform: translate(-50%, -50%);
   background: white;
   filter: contrast(20);
 `;
