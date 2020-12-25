@@ -5,7 +5,9 @@ import {
   DailyDashboardStyled,
   ValueStyled,
   RowStyled,
-  TextStyled
+  TextStyled,
+  CountryFlag,
+  CountryName
 } from './DailyDashboardStyled';
 
 const DailyDashboard = ({data}) => {
@@ -21,15 +23,26 @@ const DailyDashboard = ({data}) => {
     updated,
     casesPerOneMillion,
     deathsPerOneMillion,
-    recoveredPerOneMillion
+    recoveredPerOneMillion,
+    country,
+    countryInfo: {
+      flag,
+    }
   } = data;
   const updatedDate = new Date(updated);
-  console.log("Data", data);
 
   const fr = (string) => { return string.toLocaleString() }
 
   return (
     <DailyDashboardStyled>
+      <RowStyled>
+        <Card>
+          <RowStyled>
+            <CountryName>{country}</CountryName>
+            <CountryFlag src={flag} />
+          </RowStyled>
+        </Card>
+      </RowStyled>
       <RowStyled>
         <Card title="Today Cases">
           <ValueStyled>{fr(todayCases)}</ValueStyled>

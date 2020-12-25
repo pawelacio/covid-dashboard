@@ -12,9 +12,22 @@ export const ValueStyled = styled.div`
 
 export const RowStyled = styled.div`
   display: flex;
+  align-items: center;
 `;
 
 export const TextStyled = styled.p`
   display: inline;
   font-weight: ${props => props.bold ? 700 : 500 }
+`;
+
+export const CountryFlag = styled.img`
+  display: block;
+  height: 60px;
+  margin-right: 0px;
+  margin-left: auto;
+  border: 4px solid #000000;
+`;
+
+export const CountryName = styled.h2`
+  font-size: 36px;
 `;

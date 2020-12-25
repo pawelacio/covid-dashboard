@@ -10,6 +10,8 @@ import {ThemeContext, themes} from './ThemeContext';
 
 import {getCovidTimeline} from './api/getCovidTimeline';
 import {getCovidDaily} from './api/getCovidDaily';
+import {getCountries} from './api/getCountries';
+
 
 import { AppStyled, AppContentStyled } from './AppStyled'
 
@@ -18,6 +20,7 @@ const App = () => {
   const [isLoading, setLoading] = useState(true);
   const [historicalData, setHistoricalData] = useState(null);
   const [dailyData, setDailyData] = useState(null);
+  const [availableCountries, setAvailableCountries] = useState(null);
   const [country, setCountry] = useState('Poland');
 
 
@@ -34,13 +37,18 @@ const App = () => {
     .then((data) => {
       if (!dailyData)
         setDailyData(data);
+    });
+
+    const countriesDataReq = getCountries()
+    .then((data) => {
+      if (!availableCountries)
+        setAvailableCountries(data);
     })
 
-    Promise.all([historicalDataReq, dailyDataReq]).then(() => {
-      console.log(dailyData);
+    Promise.all([historicalDataReq, dailyDataReq, countriesDataReq]).then(() => {
       setLoading(false);
     });
-  }, [historicalData, dailyData]);
+  }, []);
 
   const toggleTheme = () => {
     theme === themes.light ? setTheme(themes.dark) : setTheme(themes.light);
