@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { breakpoints, responsiveFrom } from './helpers/breakpoints';
 
 export const AppStyled = styled.div`
   width: 100%;
@@ -7,5 +8,9 @@ export const AppStyled = styled.div`
 `
 
 export const AppContentStyled = styled.div`
-  padding: 50px;
+  padding: 10px;
+
+  ${responsiveFrom(breakpoints.medium)`
+    padding: 50px;
+  `}
 `;

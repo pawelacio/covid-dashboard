@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { breakpoints, responsiveFrom } from '../../helpers/breakpoints';
 
 export const DailyDashboardStyled = styled.div`
   /* padding: 20px; */
@@ -6,13 +7,22 @@ export const DailyDashboardStyled = styled.div`
 
 export const ValueStyled = styled.div`
   text-align: right;
-  font-size: 50px;
+  font-size: 30px;
   font-weight: 900;
+
+  ${responsiveFrom(breakpoints.tablet)`
+      font-size: 50px;
+  `};
 `;
 
 export const RowStyled = styled.div`
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
+
+  ${responsiveFrom(breakpoints.medium)`
+      flex-wrap: nowrap;
+  `};
 `;
 
 export const TextStyled = styled.p`
@@ -22,12 +32,20 @@ export const TextStyled = styled.p`
 
 export const CountryFlag = styled.img`
   display: block;
-  height: 60px;
+  height: 40px;
   margin-right: 0px;
   margin-left: auto;
   border: 4px solid #000000;
+
+  ${responsiveFrom(breakpoints.medium)`
+    height: 60px;
+  `}
 `;
 
 export const CountryName = styled.h2`
-  font-size: 36px;
+  font-size: 24px;
+
+  ${responsiveFrom(breakpoints.medium)`
+    font-size: 36px;
+  `}
 `;
