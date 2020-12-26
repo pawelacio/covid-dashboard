@@ -4,7 +4,7 @@ import Header from './components/Header/Header'
 import Loader from './components/Loader/Loader';
 import DailyDashboard from './components/DailyDashboard/DailyDashboard';
 import Card from './components/Card/Card';
-import GlobalStyle from './theme/globalStyle';
+import GlobalStyle from './styles/globalStyle';
 
 import {ThemeContext, themes} from './ThemeContext';
 
@@ -22,6 +22,7 @@ const App = () => {
   const [dailyData, setDailyData] = useState(null);
   const [availableCountries, setAvailableCountries] = useState(null);
   const [country, setCountry] = useState('Poland');
+  // const [popupVisibility, setPopupVisibility] = useState(false);
 
 
   useEffect(() => {
@@ -57,17 +58,22 @@ const App = () => {
   return (
     <ThemeContext.Provider value={{theme, toggleTheme}}>
       <GlobalStyle />
-      <AppStyled>
-        {/* <Header/> */}
+      <AppStyled theme={theme}>
         {isLoading ? (
           <Loader/>
           ) : (
-          <AppContentStyled>
-            <DailyDashboard data={dailyData}/>
-            {/* <Card title="Covid-19 chart">
-              <CovidLineChart data={historicalData} />
-            </Card> */}
-          </AppContentStyled>
+          <>
+            <Header theme={theme}/>
+            <AppContentStyled>
+              <DailyDashboard data={dailyData}/>
+              {/* <Card title="Covid-19 chart">
+                <CovidLineChart data={historicalData} />
+              </Card> */}
+              {/* { popupVisibility && (
+                <div>ddsa</div>
+              )} */}
+            </AppContentStyled>
+          </>
           )}
       </AppStyled>
     </ThemeContext.Provider>

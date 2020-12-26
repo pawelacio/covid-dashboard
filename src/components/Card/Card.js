@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import {ThemeContext} from '../../ThemeContext';
+
 
 import {
   CardStyled,
@@ -7,10 +9,11 @@ import {
 } from './CardStyled';
 
 const Card = ({title, children}) => {
+  const { theme } = useContext(ThemeContext);
   return (
-    <CardStyled>
+    <CardStyled theme={theme}>
       { title && (
-        <CardTitleStyled>{title}</CardTitleStyled>
+        <CardTitleStyled theme={theme}>{title}</CardTitleStyled>
       )}
       <CardContentStyled>
         {children}

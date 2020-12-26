@@ -1,5 +1,6 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import Card from '../Card/Card';
+import {ThemeContext} from '../../ThemeContext';
 
 import {
   DailyDashboardStyled,
@@ -29,8 +30,9 @@ const DailyDashboard = ({data}) => {
       flag,
     }
   } = data;
-  const updatedDate = new Date(updated);
 
+  const { theme } = useContext(ThemeContext);
+  const updatedDate = new Date(updated);
   const fr = (string) => { return string.toLocaleString() }
 
   return (
@@ -38,48 +40,48 @@ const DailyDashboard = ({data}) => {
       <RowStyled>
         <Card>
           <RowStyled>
-            <CountryName>{country}</CountryName>
-            <CountryFlag src={flag} />
+            <CountryName theme={theme}>{country}</CountryName>
+            <CountryFlag  theme={theme} src={flag} />
           </RowStyled>
         </Card>
       </RowStyled>
       <RowStyled>
         <Card title="Today Cases">
-          <ValueStyled>{fr(todayCases)}</ValueStyled>
+          <ValueStyled theme={theme}>{fr(todayCases)}</ValueStyled>
         </Card>
         <Card title="Today Recovered" >
-          <ValueStyled>{todayRecovered.toLocaleString()}</ValueStyled>
+          <ValueStyled theme={theme}>{todayRecovered.toLocaleString()}</ValueStyled>
         </Card>
         <Card title="Today Deaths" >
-          <ValueStyled>{todayDeaths.toLocaleString()}</ValueStyled>
+          <ValueStyled theme={theme}>{todayDeaths.toLocaleString()}</ValueStyled>
         </Card>
       </RowStyled>
       <RowStyled>
         <Card title="Cases">
-          <ValueStyled>{cases.toLocaleString()}</ValueStyled>
+          <ValueStyled theme={theme}>{cases.toLocaleString()}</ValueStyled>
         </Card>
         <Card title="Recovered" >
-          <ValueStyled>{recovered.toLocaleString()}</ValueStyled>
+          <ValueStyled theme={theme}>{recovered.toLocaleString()}</ValueStyled>
         </Card>
         <Card title="Deaths" >
-          <ValueStyled>{deaths.toLocaleString()}</ValueStyled>
+          <ValueStyled theme={theme}>{deaths.toLocaleString()}</ValueStyled>
         </Card>
       </RowStyled>
       <RowStyled>
         <Card title="Cases per million population">
-          <ValueStyled>{casesPerOneMillion.toLocaleString()}</ValueStyled>
+          <ValueStyled theme={theme}>{casesPerOneMillion.toLocaleString()}</ValueStyled>
         </Card>
         <Card title="Recovered per million population" >
-          <ValueStyled>{recoveredPerOneMillion.toLocaleString()}</ValueStyled>
+          <ValueStyled theme={theme}>{recoveredPerOneMillion.toLocaleString()}</ValueStyled>
         </Card>
         <Card title="Deaths per million population" >
-          <ValueStyled>{deathsPerOneMillion.toLocaleString()}</ValueStyled>
+          <ValueStyled theme={theme}>{deathsPerOneMillion.toLocaleString()}</ValueStyled>
         </Card>
       </RowStyled>
       <RowStyled>
         <Card>
-          <TextStyled>Data updated: </TextStyled>
-          <TextStyled bold>{updatedDate.toLocaleString()}</TextStyled>
+          <TextStyled theme={theme}>Data updated: </TextStyled>
+          <TextStyled  theme={theme} bold>{updatedDate.toLocaleString()}</TextStyled>
         </Card>
       </RowStyled>
     </DailyDashboardStyled>

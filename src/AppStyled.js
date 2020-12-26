@@ -1,10 +1,11 @@
 import styled from 'styled-components'
 import { breakpoints, responsiveFrom } from './helpers/breakpoints';
+import themesStyles from './styles/themes';
 
 export const AppStyled = styled.div`
   width: 100%;
   min-height: 100vh;
-  background-color: #f6f6f6;
+  background-color: ${ props => props.theme ? themesStyles[props.theme].backgroundColor : 'blue' };
 `
 
 export const AppContentStyled = styled.div`

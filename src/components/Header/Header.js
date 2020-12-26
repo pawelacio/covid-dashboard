@@ -6,9 +6,9 @@ import {
   LogoStyled,
 } from './HeaderStyled'
 
-const Header = () => {
+const Header = ({theme}) => {
   return (
-    <HeaderStyled>
+    <HeaderStyled theme={theme}>
       <LogoStyled/>
       <ThemeSwitch/>
     </HeaderStyled>
