@@ -1,5 +1,4 @@
 import styled, {css} from 'styled-components';
-import { themes } from './../../ThemeContext';
 
 export const ThemeSwitchStyled = styled.div`
 
