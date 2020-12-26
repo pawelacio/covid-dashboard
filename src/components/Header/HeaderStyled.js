@@ -3,8 +3,7 @@ import themesStyles from '../../styles/themes';
 
 export const HeaderStyled = styled.header`
   height: 40px;
-  padding: 10px 20px;
-  /* background-color: #cccccc; */
+  padding: 10px 60px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -12,9 +11,5 @@ export const HeaderStyled = styled.header`
 `;
 
 export const LogoStyled = styled.img`
-
-`;
-
-export const ThemeSwitchStyled = styled.button`
 
 `;
