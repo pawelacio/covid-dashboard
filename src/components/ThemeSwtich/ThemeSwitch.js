@@ -1,33 +1,13 @@
 import React, {useContext, useState} from 'react';
+import Toggle from '../Toggle/Toggle';
 import {ThemeContext, themes} from '../../ThemeContext';
 import moonIcon from './moon.svg';
 
 import {
-  ThemeSwitchStyled,
-  ToogleWrapperStyled,
-  ToggleDot,
-  ToggleInput,
-  ToggleIcon
+  ThemeSwitchStyled
 } from './ThemeSwitchStyled';
 
-export const Toggle = ({
-    value,
-    onClick,
-    disabled,
-    icon
-  }) => {
 
-  return (
-    <ToogleWrapperStyled onClick={() => onClick()} value={value}>
-      <ToggleDot>
-        { icon && (
-          <ToggleIcon src={icon}/>
-        )}
-      </ToggleDot>
-      <ToggleInput />
-    </ToogleWrapperStyled>
-  )
-}
 
 const ThemeSwitch = () => {
   const {theme, toggleTheme} = useContext(ThemeContext);
