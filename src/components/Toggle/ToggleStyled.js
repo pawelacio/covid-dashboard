@@ -9,7 +9,7 @@ export const ToggleDot = styled.div`
   background-color: #ffffff;
   border: 2px solid #2b2e3d;
   border-radius: 50%;
-  transition: left .3s cubic-bezier(0.075, 0.82, 0.165, 1), transform .1s cubic-bezier(0.075, 0.82, 0.165, 1) .3s;
+  transition: left .3s cubic-bezier(0.075, 0.82, 0.165, 1), transform .3s cubic-bezier(0.075, 0.82, 0.165, 1);
   display: flex;
   align-items: center;
   justify-content: center;

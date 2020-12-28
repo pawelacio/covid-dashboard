@@ -1,7 +1,7 @@
 import React, {useContext, useState} from 'react';
 import Toggle from '../Toggle/Toggle';
 import {ThemeContext, themes} from '../../ThemeContext';
-import moonIcon from './moon.svg';
+import moonIcon from '../../assets/moon.svg';
 
 import {
   ThemeSwitchStyled

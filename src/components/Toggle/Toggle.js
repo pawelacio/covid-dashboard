@@ -14,13 +14,13 @@ export const Toggle = ({
 }) => {
 
 return (
-  <ToogleWrapperStyled onClick={() => onClick()} value={value}>
+  <ToogleWrapperStyled onClick={() => onClick()} value={value} disabled={disabled}>
     <ToggleDot>
       { icon && (
         <ToggleIcon src={icon}/>
       )}
     </ToggleDot>
-    <ToggleInput />
+    <ToggleInput disabled={disabled} />
   </ToogleWrapperStyled>
 )
 }

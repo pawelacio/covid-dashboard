@@ -8,8 +8,9 @@ import {
   RowStyled,
   TextStyled,
   CountryFlag,
-  CountryName
+  CountryName,
 } from './DailyDashboardStyled';
+import { PopupContext } from '../../PopupContext';
 
 const DailyDashboard = ({data}) => {
   const {
@@ -32,13 +33,15 @@ const DailyDashboard = ({data}) => {
   } = data;
 
   const { theme } = useContext(ThemeContext);
+  const { openPopup } = useContext(PopupContext);
+
   const updatedDate = new Date(updated);
   const fr = (string) => { return string.toLocaleString() }
 
   return (
     <DailyDashboardStyled>
       <RowStyled>
-        <Card>
+        <Card clickable={true} onClick={() => openPopup()}>
           <RowStyled>
             <CountryName theme={theme}>{country}</CountryName>
             <CountryFlag  theme={theme} src={flag} />
