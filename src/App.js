@@ -30,24 +30,20 @@ const App = () => {
 
 
   useEffect(() => {
-    console.log('App - useEffect');
     setLoading(true);
 
     const historicalDataReq = getCovidTimeline(country)
     .then((data) => {
-      // if (!historicalData)
         setHistoricalData(data);
     });
 
     const dailyDataReq = getCovidDaily(country)
     .then((data) => {
-      // if (!dailyData)
         setDailyData(data);
     });
 
     const countriesDataReq = getCountries()
     .then((data) => {
-      // if (!availableCountries)
         setAvailableCountries(data);
     })
 
@@ -69,7 +65,6 @@ const App = () => {
   }
 
   const selectCountry = (newCountry) => {
-    console.log(newCountry);
     closePopup();
     setCountry(newCountry);
   }

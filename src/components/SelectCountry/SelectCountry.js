@@ -8,7 +8,6 @@ import {
 } from './SelectCountryStyled';
 
 const SelectCountry = ({countries, selectCountry}) => {
-  console.log(countries);
   return (
     <SelectCountryStyled>
       {countries.map(item => (

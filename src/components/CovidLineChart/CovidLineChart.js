@@ -9,8 +9,6 @@ const BarChart = ({data}) => {
   const barChartRef = useRef(null);
 
   useEffect(() => {
-    console.log('BarChart - useEffect');
-
     // Prepare SVG
     var margin = {top: 10, right: 30, bottom: 30, left: 100};
     const width = 900 - margin.left - margin.right;
