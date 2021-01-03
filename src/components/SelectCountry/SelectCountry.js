@@ -1,13 +1,22 @@
 import React from 'react';
 
 import {
-  SelectCountryStyled
+  SelectCountryStyled,
+  CountryItemStyled,
+  CountryNameStyled,
+  CountryFlagStyled
 } from './SelectCountryStyled';
 
-const SelectCountry = () => {
+const SelectCountry = ({countries, selectCountry}) => {
+  console.log(countries);
   return (
     <SelectCountryStyled>
-      Select Country Component
+      {countries.map(item => (
+        <CountryItemStyled key={item.country} onClick={() => selectCountry(item.country)}>
+          <CountryNameStyled>{item.country}</CountryNameStyled>
+          <CountryFlagStyled src={item.flag}/>
+        </CountryItemStyled>
+      ))}
     </SelectCountryStyled>
   )
 }

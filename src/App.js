@@ -26,34 +26,35 @@ const App = () => {
   const [dailyData, setDailyData] = useState(null);
   const [availableCountries, setAvailableCountries] = useState(null);
   const [country, setCountry] = useState('Poland');
-  const [popupVisibility, setPopupVisibility] = useState(true);
+  const [popupVisibility, setPopupVisibility] = useState(false);
 
 
   useEffect(() => {
     console.log('App - useEffect');
+    setLoading(true);
 
     const historicalDataReq = getCovidTimeline(country)
     .then((data) => {
-      if (!historicalData)
+      // if (!historicalData)
         setHistoricalData(data);
     });
 
     const dailyDataReq = getCovidDaily(country)
     .then((data) => {
-      if (!dailyData)
+      // if (!dailyData)
         setDailyData(data);
     });
 
     const countriesDataReq = getCountries()
     .then((data) => {
-      if (!availableCountries)
+      // if (!availableCountries)
         setAvailableCountries(data);
     })
 
     Promise.all([historicalDataReq, dailyDataReq, countriesDataReq]).then(() => {
       setLoading(false);
     });
-  }, []);
+  }, [country]);
 
   const toggleTheme = () => {
     theme === themes.light ? setTheme(themes.dark) : setTheme(themes.light);
@@ -65,6 +66,12 @@ const App = () => {
 
   const closePopup = () => {
     setPopupVisibility(false);
+  }
+
+  const selectCountry = (newCountry) => {
+    console.log(newCountry);
+    closePopup();
+    setCountry(newCountry);
   }
 
   return (
@@ -85,7 +92,7 @@ const App = () => {
 
               { popupVisibility && (
                 <Popup title="Select country">
-                  <SelectCountry/>
+                  <SelectCountry countries={availableCountries} selectCountry={selectCountry}/>
                 </Popup>
               )}
             </AppContentStyled>

@@ -7,6 +7,7 @@ export const PopupContainerStyled = styled.div`
   height: calc(100% - 30px);
   width: calc(100% - 30px);
   box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  overflow-y: scroll;
   
   ${responsiveFrom(breakpoints.medium)`
     max-height: 70%;
