@@ -8,7 +8,7 @@ import {
   CardContentStyled
 } from './CardStyled';
 
-const Card = ({title, children, onClick, clickable = false}) => {
+const Card = ({title, children, onClick = () => {}, clickable = false}) => {
   const { theme } = useContext(ThemeContext);
   return (
     <CardStyled theme={theme} onClick={() => onClick()} clickable={clickable}>

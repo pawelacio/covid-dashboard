@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import themesStyles from '../../styles/themes';
 import { breakpoints, responsiveFrom } from '../../helpers/breakpoints';
+import { rgba } from 'polished';
 
 export const PopupContainerStyled = styled.div`
   height: calc(100% - 30px);
@@ -20,7 +21,7 @@ export const PopupWrapperStyled = styled.div`
   left: 0px;
   height: 100vh;
   width: 100%;
-  background-color: rgba(256,256,256, 0.9);
+  background-color: ${ props => props.theme ? rgba(themesStyles[props.theme].cardColor, 0.9) : 'blue' };
   display: flex;
   justify-content: center;
   align-items: center;
