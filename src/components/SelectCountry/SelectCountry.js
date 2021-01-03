@@ -1,4 +1,5 @@
-import React from 'react';
+import React, {useContext} from 'react';
+import { ThemeContext } from '../../ThemeContext';
 
 import {
   SelectCountryStyled,
@@ -8,8 +9,10 @@ import {
 } from './SelectCountryStyled';
 
 const SelectCountry = ({countries, selectCountry}) => {
+  const { theme } = useContext(ThemeContext);
+
   return (
-    <SelectCountryStyled>
+    <SelectCountryStyled theme={theme}>
       {countries.map(item => (
         <CountryItemStyled key={item.country} onClick={() => selectCountry(item.country)}>
           <CountryNameStyled>{item.country}</CountryNameStyled>
