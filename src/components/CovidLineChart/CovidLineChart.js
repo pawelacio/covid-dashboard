@@ -49,7 +49,7 @@ const BarChart = ({data}) => {
           id: 'y-axis-1',
           ticks: {
             callback: function(value, index, values) {
-                return value / 1e6 + 'M';
+                return values[0] > 1000000 ? value / 1e6 + 'M' : value;
             }
         }
         },
