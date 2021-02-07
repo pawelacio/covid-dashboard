@@ -81,12 +81,6 @@ const DailyDashboard = ({data}) => {
           <ValueStyled theme={theme}>{deathsPerOneMillion.toLocaleString()}</ValueStyled>
         </Card>
       </RowStyled>
-      <RowStyled>
-        <Card>
-          <TextStyled theme={theme}>Data updated: </TextStyled>
-          <TextStyled  theme={theme} bold>{updatedDate.toLocaleString()}</TextStyled>
-        </Card>
-      </RowStyled>
     </DailyDashboardStyled>
   )
 }

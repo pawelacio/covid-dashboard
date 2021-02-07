@@ -16,7 +16,7 @@ import {getCovidDaily} from './api/getCovidDaily';
 import {getCountries} from './api/getCountries';
 
 
-import { AppStyled, AppContentStyled } from './AppStyled'
+import { AppStyled, AppContentStyled, RowStyled, TextStyled } from './AppStyled'
 import Popup from './components/Popup/Popup';
 
 const App = () => {
@@ -69,6 +69,12 @@ const App = () => {
     setCountry(newCountry);
   }
 
+  const returnDateString = (timestamp) => {
+    const date = new Date(timestamp);
+    return date.toLocaleString();
+  }
+
+
   return (
     <ThemeContext.Provider value={{theme, toggleTheme}}>
       <PopupContext.Provider value={{popupVisibility, openPopup, closePopup}}>
@@ -81,9 +87,18 @@ const App = () => {
             <Header theme={theme}/>
             <AppContentStyled>
               <DailyDashboard data={dailyData}/>
-              {/* <Card title="Covid-19 chart">
-                <CovidLineChart data={historicalData} />
-              </Card> */}
+              <RowStyled>
+                <Card title={`Covid history in ${country}`}>
+                  <CovidLineChart data={historicalData} />
+                </Card>
+              </RowStyled>
+              <RowStyled>
+                <Card>
+                  <TextStyled theme={theme}>Data updated: </TextStyled>
+                  <TextStyled  theme={theme} bold>{returnDateString(dailyData.updated)}</TextStyled>
+                </Card>
+              </RowStyled>
+              
 
               { popupVisibility && (
                 <Popup title="Select country">
