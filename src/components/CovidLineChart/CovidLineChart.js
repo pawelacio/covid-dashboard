@@ -1,15 +1,23 @@
-import React, {useEffect} from 'react';
-import { Line } from 'react-chartjs-2';
+import React, {useEffect, useContext} from 'react';
+import { Line, defaults } from 'react-chartjs-2';
+import {ThemeContext} from '../../ThemeContext';
+import themesStyles from '../../styles/themes';
 
 import {
   CovidLineChartStyled
 } from './CovidLineChartStyled';
 
+
 const BarChart = ({data}) => {
+  const { theme } = useContext(ThemeContext);
+
   const date = data.map(item => item.date);
   const cases = data.map(item => item.cases);
   const deaths = data.map(item => item.deaths);
   const recovered = data.map(item => item.recovered);
+
+
+  defaults.global.defaultFontColor = theme ? themesStyles[theme].fontColor : '#000000';
 
 
   const chartData = {
